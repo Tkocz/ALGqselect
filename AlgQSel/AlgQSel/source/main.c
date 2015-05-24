@@ -1,20 +1,28 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include "partAlg.h"
 #include "selectionAlg.h"
-#include "inc/random.h"
 #include "floyd.h"
 
-#define ARRAYSIZE	100
-#define RANGE		100
+#define ARRAYSIZE	10				//RANGE have to be defined as at least ARRAYSIZE
+#define RANGE		100				//as every element needs to be unique.
 
 main(){
-	int i;
+	int i, kElement, kValue;
 	int Array[ARRAYSIZE];
 	floyd(Array, ARRAYSIZE, RANGE);
-	prinft("Array[");
+	
+	kElement = 3;
+	//kElement = rand() % (ARRAYSIZE + 1);
+	printf("%d\n", kElement);
+
+	//kValue = bruteSelect(Array, ARRAYSIZE, kElement);
+	kValue = quickSelect(Array, ARRAYSIZE, kElement);
+	printf("%d\n", kValue);
+	
+	printf("Array[");
 	for (i = 0; i < ARRAYSIZE; i++){
 		printf("%d, ", Array[i]);
 		}
 	printf("]");
+	
 }

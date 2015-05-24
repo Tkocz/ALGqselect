@@ -55,18 +55,18 @@ static int medianOfThree(int *Array, int n){
 
 	if (Array[0] < Array[n] && Array[0] < Array[n / 2])
 		if (Array[n] > Array[n / 2])
-			return Array[n / 2];
+			return (n / 2);
 		else
-			return Array[n];
+			return n;
 	else if (Array[n] < Array[n / 2] && Array[n] < Array[0])
 		if (Array[n / 2] > Array[0])
-			return Array[0];
+			return 0;
 		else
-			return Array[n / 2];
+			return (n / 2);
 	else if (Array[n / 2] < Array[0] && Array[n / 2] < Array[n])
 		if (Array[0] > Array[n])
-			return Array[n];
+			return n;
 		else
-			return Array[0];
+			return 0;
 	else Error("Unexpected order");
 }
