@@ -10,6 +10,24 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\main.c" />
+    <ClCompile Include="source\partAlg.c" />
+    <ClCompile Include="source\selectionAlg.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pclibs\inc\extgraph.h" />
+    <ClInclude Include="pclibs\inc\gcalloc.h" />
+    <ClInclude Include="pclibs\inc\genlib.h" />
+    <ClInclude Include="pclibs\inc\graphics.h" />
+    <ClInclude Include="pclibs\inc\simpio.h" />
+    <ClInclude Include="pclibs\inc\strlib.h" />
+    <ClInclude Include="source\partAlg.h" />
+    <ClInclude Include="source\selectionAlg.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="pclibs\lib\PCLibs2010.lib" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{2B2C0578-64EE-4C53-9E91-C8C8C06256A5}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -41,9 +59,13 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\Users\Martin\Documents\Visual Studio 2013\Projects\AlgQSel\AlgQSel\pclibs;~pclibs;$(IncludePath)</IncludePath>
+    <LibraryPath>~pclibs;C:\Users\Martin\Documents\Visual Studio 2013\Projects\AlgQSel\AlgQSel\pclibs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>C:\Users\Martin\Documents\Visual Studio 2013\Projects\AlgQSel\AlgQSel\pclibs;~pclibs;$(IncludePath)</IncludePath>
+    <LibraryPath>~pclibs;C:\Users\Martin\Documents\Visual Studio 2013\Projects\AlgQSel\AlgQSel\pclibs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -53,6 +75,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -69,6 +92,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -77,15 +101,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="main.c" />
-    <ClCompile Include="partAlg.c" />
-    <ClCompile Include="selectionAlg.c" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="partAlg.h" />
-    <ClInclude Include="selectionAlg.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -15,22 +15,43 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.c">
+    <ClCompile Include="source\main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="partAlg.c">
+    <ClCompile Include="source\partAlg.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="selectionAlg.c">
+    <ClCompile Include="source\selectionAlg.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="partAlg.h">
+    <ClInclude Include="source\partAlg.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="selectionAlg.h">
+    <ClInclude Include="source\selectionAlg.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="pclibs\inc\extgraph.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pclibs\inc\gcalloc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pclibs\inc\genlib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pclibs\inc\graphics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pclibs\inc\simpio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pclibs\inc\strlib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="pclibs\lib\PCLibs2010.lib" />
   </ItemGroup>
 </Project>
