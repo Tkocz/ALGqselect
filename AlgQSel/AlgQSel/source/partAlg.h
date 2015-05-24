@@ -25,5 +25,6 @@ int lomutoPartition(int *Array, int n);
 // indices l and r (l<r)
 //Output: Partition of A[l..r], with the split position returned as
 // this function’s value
-int hoarePartition();
+int hoarePartition(int *Array, int n);
+
 #endif
