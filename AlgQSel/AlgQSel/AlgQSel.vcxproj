@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="pclibs\inc\random.c" />
     <ClCompile Include="source\selectionAlg.c" />
     <ClCompile Include="source\main.c" />
     <ClCompile Include="source\partAlg.c" />
@@ -20,6 +21,7 @@
     <ClInclude Include="pclibs\inc\gcalloc.h" />
     <ClInclude Include="pclibs\inc\genlib.h" />
     <ClInclude Include="pclibs\inc\graphics.h" />
+    <ClInclude Include="pclibs\inc\random.h" />
     <ClInclude Include="pclibs\inc\simpio.h" />
     <ClInclude Include="pclibs\inc\strlib.h" />
     <ClInclude Include="source\partAlg.h" />

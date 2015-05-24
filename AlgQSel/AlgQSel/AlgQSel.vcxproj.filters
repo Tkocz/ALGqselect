@@ -24,6 +24,9 @@
     <ClCompile Include="source\selectionAlg.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="pclibs\inc\random.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\partAlg.h">
@@ -48,6 +51,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="pclibs\inc\strlib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pclibs\inc\random.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,12 +1,13 @@
 ﻿#include "selectionAlg.h"
+#include "partAlg.h"
 
 int quickSelect(int *Array, int n, int k){
 	int *subArray;
-	int i;
-	s = LomutoPartition(Array[l..r], n); //or another partition algorithm
+	int i, s;
+	s = LomutoPartition(Array, n); //or another partition algorithm
 	if (s == k - 1)
 		return Array[s];
-	else if (s > l + k - 1){
+	else if (s > 0 + k - 1){
 		subArray = NewArray(s, int);
 		for (i = 0; i < s; i++){
 			subArray[i] = Array[i];
