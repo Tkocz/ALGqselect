@@ -52,6 +52,8 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Library Include="pclibs\lib\PCLibs2010.lib" />
+    <Library Include="pclibs\PCLibs2010.lib">
+      <Filter>Resource Files</Filter>
+    </Library>
   </ItemGroup>
 </Project>

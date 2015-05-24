@@ -26,7 +26,7 @@
     <ClInclude Include="source\selectionAlg.h" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="pclibs\lib\PCLibs2010.lib" />
+    <Library Include="pclibs\PCLibs2010.lib" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{2B2C0578-64EE-4C53-9E91-C8C8C06256A5}</ProjectGuid>

@@ -1,4 +1,9 @@
-﻿//ALGORITHM Quickselect(A[l..r], k)
+﻿#include <stdlib.h>
+#include "partAlg.h"
+#include "selectionAlg.h"
+#include "genlib.h"
+
+//ALGORITHM Quickselect(A[l..r], k)
 //Solves the selection problem by recursive partition-based algorithm
 //Input: Subarray A[l..r] of array A[0..n − 1] of orderable elements and
 // integer k (1<= k <= r − l + 1)
@@ -14,26 +19,20 @@ else Quickselect(A[s + 1..r], k − 1− s)
 */
 
 //ALGORITHM Bruteselect(A[l..r], k)
-//Solves the selection problem by bubblesorting, and then 
-// selecting the k:th element from the sorted list.
-//Input: Subarray A[l..r] of array A[0..n − 1] of orderable elements and
+//Solves the selection problem by traversing the array, finding the smallest
+// element not previously found, and repeating k times.  
+//Input: Array A[0..n − 1] of orderable unique elements and
 // integer k (1 <= k <= r − l + 1)
 //Output: The value of the kth smallest element in A[l..r]
 
-/*
-int bruteselect(int A[]){
-int i, j, temp;
-int size = sizeof(A[])
-for(i=0; i <= size; i++){
-for(j=i; j <=size; j++){
-if(A[i]>A[j]){
-temp = A[i];
-A[i] = A[j];
-A[j] = temp;
+
+int bruteSelect(int A[], int k){
+	int i, j, *kLowest;
+
+	kLowest = 999999;
+	for (j = 1, j <= k, j++){
+		for (i = 0, i < n, i++){
+			if (A[i] < kLowest[j] && A[i] < kLowest[j - 1]) kLowest[j] = A[i];
+		}
+	}
 }
-}
-}
-}
-return(A[k]);
-}
-*/
