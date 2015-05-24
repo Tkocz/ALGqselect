@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\selectionAlg.c" />
     <ClCompile Include="source\main.c" />
     <ClCompile Include="source\partAlg.c" />
-    <ClCompile Include="source\selectionAlg.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pclibs\inc\extgraph.h" />
@@ -27,6 +27,7 @@
   </ItemGroup>
   <ItemGroup>
     <Library Include="pclibs\PCLibs2010.lib" />
+    <Library Include="pclibs\PCLibs2012.lib" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{2B2C0578-64EE-4C53-9E91-C8C8C06256A5}</ProjectGuid>
@@ -59,13 +60,13 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\Martin\Documents\Visual Studio 2013\Projects\AlgQSel\AlgQSel\pclibs;~pclibs;$(IncludePath)</IncludePath>
-    <LibraryPath>~pclibs;C:\Users\Martin\Documents\Visual Studio 2013\Projects\AlgQSel\AlgQSel\pclibs;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Martin\Documents\Visual Studio 2013\Projects\AlgQSel\AlgQSel\pclibs\;~pclibs;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Martin\Documents\Visual Studio 2013\Projects\AlgQSel\AlgQSel\pclibs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\Users\Martin\Documents\Visual Studio 2013\Projects\AlgQSel\AlgQSel\pclibs;~pclibs;$(IncludePath)</IncludePath>
-    <LibraryPath>~pclibs;C:\Users\Martin\Documents\Visual Studio 2013\Projects\AlgQSel\AlgQSel\pclibs;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Martin\Documents\Visual Studio 2013\Projects\AlgQSel\AlgQSel\pclibs\;~pclibs;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Martin\Documents\Visual Studio 2013\Projects\AlgQSel\AlgQSel\pclibs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
