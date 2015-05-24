@@ -7,8 +7,8 @@
 * Senast modifierad: 17/5 - 2015
 */
 
-#ifndef _pqueue_h
-#define _pqueue_h
+#ifndef _selectionSort_h
+#define _selectionSort_h
 
 #include <stdio.h>
 #include "partAlg.h"

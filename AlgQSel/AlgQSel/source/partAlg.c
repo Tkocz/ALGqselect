@@ -1,4 +1,7 @@
 ﻿#include "partAlg.h"
+#include "inc/simpio.h"
+
+static int medianOfThree(int *Array, int n);
 
 int lomutoPartition(int *Array, int n){
 	int i, p, s, tmp;
@@ -65,4 +68,5 @@ static int medianOfThree(int *Array, int n){
 			return Array[n];
 		else
 			return Array[0];
+	else Error("Unexpected order");
 }

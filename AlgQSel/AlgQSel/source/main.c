@@ -3,20 +3,18 @@
 #include "partAlg.h"
 #include "selectionAlg.h"
 #include "inc/random.h"
+#include "floyd.h"
 
-#define ARRAYSIZE 1000
+#define ARRAYSIZE	100
+#define RANGE		100
 
 main(){
 	int i;
 	int Array[ARRAYSIZE];
-
-	Randomize();
-	for (i = 0; i < ARRAYSIZE; i++){
-		Array[i] = RandomInteger(0, 20000);
-	}
-	printf("Array[");
+	floyd(Array, ARRAYSIZE, RANGE);
+	prinft("Array[");
 	for (i = 0; i < ARRAYSIZE; i++){
 		printf("%d, ", Array[i]);
-	}
+		}
 	printf("]");
 }

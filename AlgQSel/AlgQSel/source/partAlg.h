@@ -7,8 +7,8 @@
 * Senast modifierad: 17/5 - 2015
 */
 
-#ifndef _pqueue_h
-#define _pqueue_h
+#ifndef _partAlg_h
+#define _partAlg_h
 
 //ALGORITHM LomutoPartition(Array[l..r], size)
 //Partitions subarray by Lomuto’s algorithm using first element as pivot

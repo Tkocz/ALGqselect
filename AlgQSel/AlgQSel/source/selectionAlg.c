@@ -4,7 +4,7 @@
 int quickSelect(int *Array, int n, int k){
 	int *subArray;
 	int i, s;
-	s = LomutoPartition(Array, n); //or another partition algorithm
+	s = lomutoPartition(Array, n); //or another partition algorithm
 	if (s == k - 1)
 		return Array[s];
 	else if (s > 0 + k - 1){
