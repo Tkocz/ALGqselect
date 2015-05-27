@@ -1,11 +1,13 @@
 ﻿#include "selectionAlg.h"
-#include "partAlg.h"
 
 int quickSelect(arrayT Array, int k, int partAlg){
+	
 	if (Array->nValues == 1)
 		return Array->values[0];
+	
 	arrayT subArray;
 	int i, s;
+	
 	if (partAlg)
 		s = hoarePartition(Array);
 	else
@@ -38,7 +40,7 @@ int quickSelect(arrayT Array, int k, int partAlg){
 //ALGORITHM Bruteselect(arrayT, k)
 int bruteSelect(arrayT Array, int k){
 	int i, j, tmp, *kLowest;
-
+	tmp = 0;
 	kLowest = malloc(sizeof(int)*k);
 
 	for (i = 0; i <= k; i++){

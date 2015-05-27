@@ -13,6 +13,9 @@
 #include <stdio.h>
 #include "partAlg.h"
 
+#define LOMUTO		0
+#define HOARE		1
+
 //ALGORITHM Quickselect(Array[l..r], n, k)
 //Solves the selection problem by recursive partition-based algorithm
 //Input: Subarray Array[l..r] of Array[0..n − 1] of orderable unique elements,

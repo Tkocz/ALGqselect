@@ -45,7 +45,7 @@ int hoarePartition(arrayT Array){
 //ALGORITHM medianOfThree(Array, n)
 //Returns the median of the first, last and middle element from Array.
 static int medianOfThree(arrayT Array){
-	int n = Array->nValues-1;
+	int n = Array->nValues - 1;
 	if (Array->values[0] <= Array->values[n] && Array->values[0] <= Array->values[n / 2])
 		if (Array->values[n] > Array->values[n / 2])
 			return (n / 2);
@@ -56,9 +56,10 @@ static int medianOfThree(arrayT Array){
 			return 0;
 		else
 			return (n / 2);
-	else //if (Array->values[n / 2] <= Array->values[0] && Array->values[n / 2] <= Array->values[n])
+	else{ //if (Array->values[n / 2] <= Array->values[0] && Array->values[n / 2] <= Array->values[n])
 		if (Array->values[0] > Array->values[n])
 			return n;
 		else
 			return 0;
+	}
 }

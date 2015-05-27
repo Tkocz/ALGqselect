@@ -3,34 +3,23 @@
 #include "selectionAlg.h"
 #include "floyd.h"
 #include "array.h"
-
-#define ARRAYSIZE	1000				//RANGE have to be defined as *at least* ARRAYSIZE
-#define RANGE		9999				//as every element needs to be unique.
-
-#define LOMUTO		0
-#define HOARE		1
+#include "analyzer.h"
+#include "playground.h"
 
 main(){
-
-	arrayT Array;
-	int i, kElement, kValue;
-
-	Array = newArrayT(ARRAYSIZE);
-	floyd(Array, RANGE);
-	
-	printf("Array[");
-	for (i = 0; i < ARRAYSIZE; i++){
-		printf("%d, ", Array->values[i]);
+	char answer;
+	while (1){
+		system("cls");
+		printf("Anaylyzing tool intended for Quickselect.\nCreated by Martin Bergqvist, S141564 @ HB.se\n");
+		printf("Would you like to run the analysis mode, or play around? a/p (q to quit)\n");
+		answer = ' ';
+		while (!(answer == 'a' || answer == 'p' || answer == 'q'))
+			answer = getchar();
+		if (answer == 'a')
+			timer();
+		else if (answer == 'p')
+			playGround();
+		else 
+			break;
 	}
-	printf("]\n");
-
-
-	//kElement = 3;
-	kElement = rand() % (ARRAYSIZE + 1);
-	printf("The %d:d smallest element\n", kElement);
-
-	//kValue = bruteSelect(Array, kElement);
-	kValue = quickSelect(Array, kElement, HOARE);
-	printf("%d\n", kValue);
-	
 }
