@@ -24,9 +24,6 @@
     <ClCompile Include="source\selectionAlg.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="pclibs\inc\random.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\floyd.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -41,38 +38,12 @@
     <ClInclude Include="source\selectionAlg.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="pclibs\inc\extgraph.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="pclibs\inc\gcalloc.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="pclibs\inc\genlib.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="pclibs\inc\graphics.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="pclibs\inc\simpio.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="pclibs\inc\strlib.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="pclibs\inc\random.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="source\floyd.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\array.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="pclibs\PCLibs2012.lib">
-      <Filter>Resource Files</Filter>
-    </Library>
   </ItemGroup>
   <ItemGroup>
     <None Include="docs\IndUppg_Algoritmer_vt15.pdf" />

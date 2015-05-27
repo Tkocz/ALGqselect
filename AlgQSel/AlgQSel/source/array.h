@@ -10,4 +10,6 @@ typedef struct arrayT {
 
 arrayT newArrayT(int n);
 
+void swap(arrayT Array, int x, int y);
+
 #endif

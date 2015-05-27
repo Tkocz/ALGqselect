@@ -4,8 +4,8 @@
 #include "floyd.h"
 #include "array.h"
 
-#define ARRAYSIZE	10				//RANGE have to be defined as *at least* ARRAYSIZE
-#define RANGE		100				//as every element needs to be unique.
+#define ARRAYSIZE	1000				//RANGE have to be defined as *at least* ARRAYSIZE
+#define RANGE		1000				//as every element needs to be unique.
 
 main(){
 

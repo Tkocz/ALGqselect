@@ -1,49 +1,38 @@
 ﻿#include "partAlg.h"
-#include "inc/simpio.h"
 #include "array.h"
+#include <stdlib.h>
 
 static int medianOfThree(arrayT Array);
 
 int lomutoPartition(arrayT Array){
-	int i, p, s, tmp;
-	
-	p = medianOfThree(Array);
+	int i, p, s;
+
+	p = Array->values[medianOfThree(Array)];
 	s = 0;
-	for (i = 0; i < Array->nValues; i++){
+	for (i = 1; i < Array->nValues; i++){
 		if (Array->values[i] < p){
-			s++;
-			tmp = Array->values[s];
-			Array->values[s] = Array->values[i];
-			Array->values[i] = tmp;
+			s++;											//THE FUCK!!!!??!!!
+			swap(Array, s, i);
 		}
 	}
-	tmp = Array->values[0];
-	Array->values[0] = Array->values[s];
-	Array->values[s] = tmp;
+	swap(Array, 0, s);
 	return s;
 }
 
-
 int hoarePartition(arrayT Array){
-	int p, i, j, tmp;
-	tmp = 0;
+	int p, i, j;
 	p = Array->values[medianOfThree(Array)];
 	i = 0;
-	j = Array->nValues+1;
-	while (i <= j){
-		while (Array->values[i++] <= p)
-		while (Array->values[j--] >= p)
-		tmp = Array->values[i];
-		Array->values[i] = Array->values[j];
-		Array->values[j] = tmp;
+	j = Array->nValues-1;
+	while (i < j){
+		while (Array->values[i] < p)
+			i++;
+		while (Array->values[j] > p)
+			j--;
+		swap(Array, i, j);
 	}
-	tmp = Array->values[i];
-	Array->values[i] = Array->values[j];
-	Array->values[j] = tmp;
-
-	tmp = Array->values[0];
-	Array->values[0] = Array->values[j];
-	Array->values[j] = tmp;
+	swap(Array, i, j);
+	//swap(Array, 0, j);
 
 	return j;
 }
@@ -62,10 +51,9 @@ static int medianOfThree(arrayT Array){
 			return 0;
 		else
 			return (n / 2);
-	else if (Array->values[n / 2] <= Array->values[0] && Array->values[n / 2] <= Array->values[n])
+	else //if (Array->values[n / 2] <= Array->values[0] && Array->values[n / 2] <= Array->values[n])
 		if (Array->values[0] > Array->values[n])
 			return n;
 		else
 			return 0;
-	else Error("Unexpected order");
 }
