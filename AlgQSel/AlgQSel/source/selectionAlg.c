@@ -1,11 +1,15 @@
 ﻿#include "selectionAlg.h"
 #include "partAlg.h"
 
-int quickSelect(arrayT Array, int k){
+int quickSelect(arrayT Array, int k, int partAlg){
+	if (Array->nValues == 1)
+		return Array->values[0];
 	arrayT subArray;
 	int i, s;
-	s = lomutoPartition(Array); //or another partition algorithm
-	//s = hoarePartition(Array);
+	if (partAlg)
+		s = hoarePartition(Array);
+	else
+		s = lomutoPartition(Array);
 
 	if (s == k - 1)
 		return Array->values[s];
@@ -16,7 +20,7 @@ int quickSelect(arrayT Array, int k){
 		for (i = 0; i <= s; i++){
 			subArray->values[i] = Array->values[i];
 		}
-		quickSelect(subArray, k);
+		quickSelect(subArray, k, partAlg);
 	}
 	else{
 		subArray = malloc(sizeof(arrayT));
@@ -27,7 +31,7 @@ int quickSelect(arrayT Array, int k){
 			subArray->values[j] = Array->values[i];
 			j++;
 		}
-		quickSelect(subArray, (k-1-s));
+		quickSelect(subArray, (k-1-s), partAlg);
 	}
 }
 

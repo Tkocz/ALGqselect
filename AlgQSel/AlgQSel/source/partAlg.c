@@ -5,13 +5,18 @@
 static int medianOfThree(arrayT Array);
 
 int lomutoPartition(arrayT Array){
-	int i, p, s;
-
-	p = Array->values[medianOfThree(Array)];
+	//	ALGORITHM LomutoPartition(A[l..r])
+	//Partitions subarray by Lomuto’s algorithm using first element as pivot
+	//Input: A subarray A[l..r] of array A[0..n − 1], defined by its left and right
+	// indices l and r (l ≤ r)
+	//Output: Partition of A[l..r] and the new position of the pivot
+	int p, s, i;
+	
+	p = Array->values[0];
 	s = 0;
-	for (i = 1; i < Array->nValues; i++){
+	for (i = 0; i < Array->nValues; i++){
 		if (Array->values[i] < p){
-			s++;											//THE FUCK!!!!??!!!
+			s++;
 			swap(Array, s, i);
 		}
 	}

@@ -18,7 +18,7 @@
 //Input: Subarray Array[l..r] of Array[0..n − 1] of orderable unique elements,
 // size of array (n) and integer k ( 1 <= k <= (r − l + 1))
 //Output: The value of the kth smallest element in Array[l..r]
-int quickSelect(arrayT Array, int k);
+int quickSelect(arrayT Array, int k, int partAlg);
 
 
 //ALGORITHM Bruteselect(Array[l..r], n, k)
