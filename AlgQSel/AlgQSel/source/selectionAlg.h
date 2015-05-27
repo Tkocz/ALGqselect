@@ -4,7 +4,7 @@
 * Granssnitt för partitionering
 *
 * Martin Bergqvist, ASYAR14
-* Senast modifierad: 17/5 - 2015
+* Senast modifierad: 27/5 - 2015
 */
 
 #ifndef _selectionSort_h
@@ -12,15 +12,13 @@
 
 #include <stdio.h>
 #include "partAlg.h"
-#include "inc/genlib.h"
-#include "inc/simpio.h"
 
 //ALGORITHM Quickselect(Array[l..r], n, k)
 //Solves the selection problem by recursive partition-based algorithm
 //Input: Subarray Array[l..r] of Array[0..n − 1] of orderable unique elements,
 // size of array (n) and integer k ( 1 <= k <= (r − l + 1))
 //Output: The value of the kth smallest element in Array[l..r]
-int quickSelect(int *Array, int n, int k);
+int quickSelect(arrayT Array, int k);
 
 
 //ALGORITHM Bruteselect(Array[l..r], n, k)
@@ -29,6 +27,6 @@ int quickSelect(int *Array, int n, int k);
 //Input: Array[0..n − 1] of orderable unique elements, size of Array (n) and
 // integer k (1 <= k <= (r − l + 1))
 //Output: The value of the kth smallest element in Array[l..r]
-int bruteSelect(int *Array, int n, int k);
+int bruteSelect(arrayT Array, int k);
 
 #endif

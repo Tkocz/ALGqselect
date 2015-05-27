@@ -1,43 +1,54 @@
 ﻿#include "selectionAlg.h"
 #include "partAlg.h"
 
-int quickSelect(int *Array, int n, int k){
-	int *subArray;
+int quickSelect(arrayT Array, int k){
+	arrayT subArray;
 	int i, s;
-	s = 0;// lomutoPartition(*Array, n); //or another partition algorithm
+	s = lomutoPartition(Array); //or another partition algorithm
+	//s = hoarePartition(Array);
+
 	if (s == k - 1)
-		return Array[s];
+		return Array->values[s];
 	else if (s > (k - 1)){
-		subArray = NewArray(s, int);
+		subArray = malloc(sizeof(arrayT));
+		subArray->nValues = s;
+		subArray->values = malloc(sizeof(int)*s);
 		for (i = 0; i <= s; i++){
-			subArray[i] = Array[i];
+			subArray->values[i] = Array->values[i];
 		}
-		quickSelect(subArray, s, k);
+		quickSelect(subArray, k);
 	}
 	else{
-		subArray = NewArray((n-s), int);
+		subArray = malloc(sizeof(arrayT));
+		subArray->nValues = (Array->nValues - s);
+		subArray->values = malloc(sizeof(int)*(Array->nValues - s));
 		int j = 0;
-		for (i = s+1; i <= n; i++){
-			subArray[j] = Array[i];
+		for (i = s+1; i <= Array->nValues; i++){
+			subArray->values[j] = Array->values[i];
 			j++;
 		}
-		quickSelect(subArray, j, (k-1-s));
+		quickSelect(subArray, (k-1-s));
 	}
 }
 
-//ALGORITHM Bruteselect(Array[l..r], n, k)
-int bruteSelect(int *Array, int n, int k){
-	int i, j, *kLowest;
-	kLowest = NewArray(k, int);
+//ALGORITHM Bruteselect(arrayT, k)
+int bruteSelect(arrayT Array, int k){
+	int i, j, tmp, *kLowest;
+
+	kLowest = malloc(sizeof(int)*k);
+
 	for (i = 0; i <= k; i++){
 		kLowest[i] = 999999;
 	}
 
-	for (j = 0; j <= k; j++){
-		for (i = 0; i < n; i++){
-			if (Array[i] < kLowest[j] && (Array[i] > kLowest[j-1] || kLowest[0] == 999999))
-				kLowest[j] = Array[i];
+	for (j = 1; j <= k; j++){
+		for (i = 0; i < Array->nValues; i++){
+			if (Array->values[i] < kLowest[j]){
+				kLowest[j] = Array->values[i];
+				tmp = i;
+			}
 		}
+		Array->values[tmp] = kLowest[k];
 	}
-	return kLowest[k-1];
+	return kLowest[k];
 }

@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pclibs\inc\random.c" />
+    <ClCompile Include="source\array.c" />
     <ClCompile Include="source\floyd.c" />
     <ClCompile Include="source\selectionAlg.c" />
     <ClCompile Include="source\main.c" />
@@ -25,12 +26,17 @@
     <ClInclude Include="pclibs\inc\random.h" />
     <ClInclude Include="pclibs\inc\simpio.h" />
     <ClInclude Include="pclibs\inc\strlib.h" />
+    <ClInclude Include="source\array.h" />
     <ClInclude Include="source\floyd.h" />
     <ClInclude Include="source\partAlg.h" />
     <ClInclude Include="source\selectionAlg.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="pclibs\PCLibs2012.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="docs\IndUppg_Algoritmer_vt15.pdf" />
+    <None Include="docs\Qselect.docx" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{2B2C0578-64EE-4C53-9E91-C8C8C06256A5}</ProjectGuid>

@@ -1,31 +1,32 @@
 #include "inc/genlib.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "floyd.h"
+#include "array.h"
 
-int* floyd(int Array[], int length, int range){
-	int *is_used;
+void floyd(arrayT Array, int range){
+	int *isUsed;
 	int i;
 
-	if (length > range)		//Errorhandling for faulty input
-		range = length;
+	if (Array->nValues > range)		//Errorhandling for faulty input
+		range = Array->nValues;
 
-	is_used = NewArray(range, int);
+	isUsed = malloc(sizeof(int)*range);
 	for (i = 0; i < range; i++)
-		is_used[i] = 0;
+		isUsed[i] = 0;
 
 	int in, im;
 
 	im = 0;
 
-	for (in = range -length; in < range && im < length; ++in) {
-		int r = rand() % (range + 1); /* generate a random number 'r' */
+	for (in = range - Array->nValues ; in < range && im < Array->nValues; ++in) {
+		int r = rand() % (range + 1); //Generate a random number r
 
-		while (is_used[r])
+		while (isUsed[r])	//If r is used
 		{
-			/* we already have 'r' */
 			r = rand() % (range + 1);
 		}
-		Array[im++] = r + 1; /* +1 since your range begins from 1 */
-		is_used[r] = 1;
+		Array->values[im++] = r;
+		isUsed[r] = 1;
 	}
 }

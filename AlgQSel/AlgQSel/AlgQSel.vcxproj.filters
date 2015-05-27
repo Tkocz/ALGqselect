@@ -30,6 +30,9 @@
     <ClCompile Include="source\floyd.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\array.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\partAlg.h">
@@ -62,10 +65,17 @@
     <ClInclude Include="source\floyd.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="source\array.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Library Include="pclibs\PCLibs2012.lib">
       <Filter>Resource Files</Filter>
     </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="docs\IndUppg_Algoritmer_vt15.pdf" />
+    <None Include="docs\Qselect.docx" />
   </ItemGroup>
 </Project>

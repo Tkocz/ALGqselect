@@ -10,10 +10,15 @@
 #ifndef _floyd_h
 #define _floyd_h
 
-//ALGORITHM floyd(lenght, range)
-//Generates an array of *lenght*, and fills it with random unique integers
-// up to the *range*
-//Output: array[length] with values in the range of 0 to range
-int* floyd(int Array[], int length, int range);
+#include "array.h"
+
+//ALGORITHM floyd(ArrayT, range)
+// for J : = N - M + 1 to N do
+// T : = RandInt(1, J)
+//	 if T is not in S then
+//	 	insert T in S
+//	 else
+//	 insert J in S
+void floyd(arrayT Array, int range);
 
 #endif
