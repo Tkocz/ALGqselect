@@ -9,10 +9,10 @@
 #ifndef _analyzer_h_
 #define _analyzer_h_
 
-#define NUMBEROFREPS 30
+#define NUMBEROFREPS 1
 
 #define ARRAYSIZE	10				//RANGE have to be defined as *at least* ARRAYSIZE
-#define RANGE		200				//as every element needs to be unique.
+#define RANGE		10				//as every element needs to be unique.
 
 void timer(void);
 

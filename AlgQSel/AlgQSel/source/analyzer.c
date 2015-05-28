@@ -17,7 +17,7 @@ void timer(void){
 	Array = newArrayT(ARRAYSIZE);
 	floyd(origArray, RANGE);
 
-	kElement = 1+rand() % (ARRAYSIZE);
+	kElement = 1 + rand() % (ARRAYSIZE);
 
 	printf("Array[");
 	for (i = 0; i < ARRAYSIZE; i++){
@@ -25,20 +25,6 @@ void timer(void){
 	}
 	printf("]\n");
 
-	/* quickselect with Hoare-partition */
-	start = GetCurrentCPUTime();
-		for (i = 0; i < NUMBEROFREPS; i++) {
-			memcpy(Array->values, origArray->values, sizeof(int)*ARRAYSIZE);
-			Array->nValues = origArray->nValues;
-			Array->lIndex = origArray->lIndex;
-			Array->rIndex = origArray->rIndex;
-			result = quickSelect(Array, kElement, HOARE);
-			//freeArrayT(Array);
-		}
-	printf("Time to run quickSelect with HOARE-partition on a %d elements large array, finding the k:th smallest element:\n %g usecs\n\n", ARRAYSIZE,
-		1000.0*(GetCurrentCPUTime() - start) / (NUMBEROFREPS));
-	printf("The *%d* smallest element was %d\n\n", kElement, result);
-	
 	/* quickselect with Lomuto-partition */
 	start = GetCurrentCPUTime();
 	for (i = 0; i < NUMBEROFREPS; i++) {
@@ -49,9 +35,25 @@ void timer(void){
 		result = quickSelect(Array, kElement, LOMUTO);
 		//freeArrayT(Array);
 	}
+
 	printf("Time to run quickSelect with LOMUTO-partition on a %d elements large array, finding the k:th smallest element:\n %g usecs\n\n", ARRAYSIZE,
 		1000.0*(GetCurrentCPUTime() - start) / (NUMBEROFREPS));
-	printf("The *%d* smallest element was %d\n\n",kElement, result);
+	printf("The *%d* smallest element was %d\n\n", kElement, result);
+
+	/* quickselect with Hoare-partition */
+	start = GetCurrentCPUTime();
+	for (i = 0; i < NUMBEROFREPS; i++) {
+		memcpy(Array->values, origArray->values, sizeof(int)*ARRAYSIZE);
+		Array->nValues = origArray->nValues;
+		Array->lIndex = origArray->lIndex;
+		Array->rIndex = origArray->rIndex;
+		result = quickSelect(Array, kElement, HOARE);
+		//freeArrayT(Array);
+	}
+	printf("Time to run quickSelect with HOARE-partition on a %d elements large array, finding the k:th smallest element:\n %g usecs\n\n", ARRAYSIZE,
+		1000.0*(GetCurrentCPUTime() - start) / (NUMBEROFREPS));
+	printf("The *%d* smallest element was %d\n\n", kElement, result);
+
 
 	/* bruteselect */
 	start = GetCurrentCPUTime();
@@ -64,7 +66,7 @@ void timer(void){
 	}
 	printf("Time to run a bruteforce-version Select on a %d elements large array, finding the k:th smallest element:\n %g usecs\n\n", ARRAYSIZE,
 		1000.0*(GetCurrentCPUTime() - start) / (NUMBEROFREPS));
-	printf("The *%d* smallest element was %d\n\n",kElement, result);
+	printf("The *%d* smallest element was %d\n\n", kElement, result);
 
 	system("pause");
 
