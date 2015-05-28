@@ -22,4 +22,6 @@ arrayT newArrayT(int n);
 
 void swap(arrayT Array, int x, int y);
 
+arrayT newSubArrayT(arrayT Array, int s, int k);
+
 #endif

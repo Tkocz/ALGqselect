@@ -37,7 +37,7 @@ int hoarePartition(arrayT Array){
 		swap(Array, i, j);
 	}
 	swap(Array, i, j);
-	//swap(Array, 0, j);
+	swap(Array, 0, j);
 
 	return j;
 }
@@ -45,21 +45,22 @@ int hoarePartition(arrayT Array){
 //ALGORITHM medianOfThree(Array, n)
 //Returns the median of the first, last and middle element from Array.
 static int medianOfThree(arrayT Array){
-	int n = Array->nValues - 1;
-	if (Array->values[0] <= Array->values[n] && Array->values[0] <= Array->values[n / 2])
-		if (Array->values[n] > Array->values[n / 2])
-			return (n / 2);
-		else
-			return n;
-	else if (Array->values[n] <= Array->values[n / 2] && Array->values[n] <= Array->values[0])
-		if (Array->values[n / 2] > Array->values[0])
+	int m = Array->nValues / 2;
+	int r = Array->nValues-1;
+
+	if (Array->values[0] < Array->values[m])
+	{
+		if (Array->values[0] >= Array->values[r])
 			return 0;
-		else
-			return (n / 2);
-	else{ //if (Array->values[n / 2] <= Array->values[0] && Array->values[n / 2] <= Array->values[n])
-		if (Array->values[0] > Array->values[n])
-			return n;
-		else
-			return 0;
+		else if (Array->values[m] < Array->values[r])
+			return m;
 	}
+	else
+	{
+		if (Array->values[0] < Array->values[r])
+			return 0;
+		else if (Array->values[m] >= Array->values[r])
+			return m;
+	}
+	return r;
 }

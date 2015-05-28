@@ -4,13 +4,17 @@
 #include <stdio.h>
 #include "selectionAlg.h"
 #include "analyzer.h"
+#include <string.h>
 
 void playGround(void){
 
-	arrayT Array;
+	arrayT Array, origArray;
 	int i, kElement, kValue;
+	origArray = newArrayT(ARRAYSIZE);
+	floyd(origArray, RANGE);
 	Array = newArrayT(ARRAYSIZE);
-	floyd(Array, RANGE);
+	memcpy(Array->values, origArray->values, sizeof(int)*ARRAYSIZE);
+
 	printf("Array[");
 	for (i = 0; i < ARRAYSIZE; i++){
 		printf("%d, ", Array->values[i]);
@@ -21,6 +25,13 @@ void playGround(void){
 	printf("The %d:d smallest element\n", kElement);
 	kValue = bruteSelect(Array, kElement);
 	//kValue = quickSelect(Array, kElement, HOARE);
-	printf("%d\n", kValue);
+	printf("%d\n\n", kValue);
+
+	memcpy(Array->values, origArray->values, sizeof(int)*ARRAYSIZE);
+	printf("Array[");
+	for (i = 0; i < ARRAYSIZE; i++){
+		printf("%d, ", Array->values[i]);
+	}
+	printf("]\n");
 	system("pause");
 }

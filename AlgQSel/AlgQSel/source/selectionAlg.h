@@ -12,6 +12,7 @@
 
 #include <stdio.h>
 #include "partAlg.h"
+#include "array.h"
 
 #define LOMUTO		0
 #define HOARE		1
