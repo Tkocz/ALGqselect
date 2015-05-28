@@ -11,6 +11,9 @@ arrayT newArrayT(int n) {
 	return array;
 }
 void swap(arrayT Array, int x, int y){
+	
+	if (x == y)
+		return;
 	int tmp;
 	tmp = Array->values[x];
 	Array->values[x] = Array->values[y];

@@ -2,7 +2,13 @@
 
 int quickSelect(arrayT Array, int kValue, int partAlg){
 
-	int i, s;
+	int i, s, tmp;
+
+	if (Array->lIndex > Array->rIndex){
+		tmp = Array->lIndex;
+		Array->lIndex = Array->rIndex;
+		Array->rIndex = tmp;
+	}
 
 	if (partAlg)
 		s = hoarePartition(Array);
@@ -16,8 +22,8 @@ int quickSelect(arrayT Array, int kValue, int partAlg){
 		quickSelect(Array, kValue, partAlg);
 	}
 	else{
-		Array->lIndex = s+1;
-		quickSelect(Array, (kValue - 1 - s), partAlg);
+		Array->lIndex = s + 1;
+		quickSelect(Array, (kValue), partAlg);
 	}
 }
 

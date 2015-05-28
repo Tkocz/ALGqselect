@@ -37,7 +37,7 @@ int hoarePartition(arrayT Array){
 		swap(Array, i, j);
 	}
 	swap(Array, i, j);
-	swap(Array, Array->lIndex, j);
+	//swap(Array, Array->lIndex, j);
 
 	return j;
 }
