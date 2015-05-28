@@ -28,11 +28,11 @@ int hoarePartition(arrayT Array){
 	int p, i, j;
 	p = Array->values[medianOfThree(Array)];
 	i = Array->lIndex;
-	j = Array->rIndex + 1;
-	while (i <= j){
-		while (Array->values[i] <= p)
+	j = Array->rIndex;
+	while (i < j){
+		while (Array->values[i] < p)
 			i++;
-		while (Array->values[j] >= p)
+		while (Array->values[j] > p)
 			j--;
 		swap(Array, i, j);
 	}
@@ -45,20 +45,21 @@ int hoarePartition(arrayT Array){
 //ALGORITHM medianOfThree(Array, n)
 //Returns the median of the first, last and middle element from Array.
 static int medianOfThree(arrayT Array){
-	int m = Array->nValues / 2;
-	int r = Array->nValues-1;
+	int m = Array->rIndex / 2;
+	int r = Array->rIndex;
+	int l = Array->lIndex;
 
-	if (Array->values[0] < Array->values[m])
+	if (Array->values[l] < Array->values[m])
 	{
-		if (Array->values[0] >= Array->values[r])
-			return 0;
+		if (Array->values[l] >= Array->values[r])
+			return l;
 		else if (Array->values[m] < Array->values[r])
 			return m;
 	}
 	else
 	{
-		if (Array->values[0] < Array->values[r])
-			return 0;
+		if (Array->values[l] < Array->values[r])
+			return l;
 		else if (Array->values[m] >= Array->values[r])
 			return m;
 	}

@@ -24,4 +24,6 @@ arrayT newArrayT(int n);
 
 void swap(arrayT Array, int x, int y);
 
+void freeArrayT(arrayT Array);
+
 #endif
