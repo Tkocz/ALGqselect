@@ -12,32 +12,32 @@ int lomutoPartition(arrayT Array){
 	//Output: Partition of A[l..r] and the new position of the pivot
 	int p, s, i;
 	
-	p = Array->values[0];
-	s = 0;
-	for (i = 0; i < Array->nValues; i++){
+	p = Array->values[Array->lIndex];
+	s = Array->lIndex;
+	for (i = Array->lIndex+1; i <= Array->rIndex; i++){
 		if (Array->values[i] < p){
 			s++;
 			swap(Array, s, i);
 		}
 	}
-	swap(Array, 0, s);
+	swap(Array, Array->lIndex, s);
 	return s;
 }
 
 int hoarePartition(arrayT Array){
 	int p, i, j;
 	p = Array->values[medianOfThree(Array)];
-	i = 0;
-	j = Array->nValues-1;
-	while (i < j){
-		while (Array->values[i] < p)
+	i = Array->lIndex;
+	j = Array->rIndex + 1;
+	while (i <= j){
+		while (Array->values[i] <= p)
 			i++;
-		while (Array->values[j] > p)
+		while (Array->values[j] >= p)
 			j--;
 		swap(Array, i, j);
 	}
 	swap(Array, i, j);
-	swap(Array, 0, j);
+	swap(Array, Array->lIndex, j);
 
 	return j;
 }

@@ -1,8 +1,7 @@
 ﻿#include "selectionAlg.h"
 
-int quickSelect(arrayT Array, int k, int partAlg){
+int quickSelect(arrayT Array, int kValue, int partAlg){
 
-	arrayT subArray;
 	int i, s;
 
 	if (partAlg)
@@ -10,17 +9,15 @@ int quickSelect(arrayT Array, int k, int partAlg){
 	else
 		s = lomutoPartition(Array);
 
-	if (s == k - 1)
+	if (s == kValue - 1)
 		return (Array->values[s]);
-	else if (s > (k - 1)){
-
-		subArray = newSubArrayT(Array, s, k);
-		quickSelect(subArray, k, partAlg);
+	else if (s > (kValue - 1)){
+		Array->rIndex = s - 1;
+		quickSelect(Array, kValue, partAlg);
 	}
 	else{
-
-		subArray = newSubArrayT(Array, s, k);
-		quickSelect(subArray, (k - 1 - s), partAlg);
+		Array->lIndex = s+1;
+		quickSelect(Array, (kValue - 1 - s), partAlg);
 	}
 }
 

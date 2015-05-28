@@ -6,6 +6,8 @@ arrayT newArrayT(int n) {
 
 	array->values = malloc(sizeof(int)*n);
 	array->nValues = n;
+	array->lIndex = 0;
+	array->rIndex = n - 1;
 	return array;
 }
 void swap(arrayT Array, int x, int y){
@@ -14,7 +16,7 @@ void swap(arrayT Array, int x, int y){
 	Array->values[x] = Array->values[y];
 	Array->values[y] = tmp;
 }
-arrayT newSubArrayT(arrayT Array, int s, int k){
+/*arrayT newSubArrayT(arrayT Array, int s, int k){
 	int i, j;
 	arrayT subArray = malloc(sizeof(arrayT));
 
@@ -41,4 +43,4 @@ arrayT newSubArrayT(arrayT Array, int s, int k){
 		}
 	}
 	return subArray;
-}
+}*/

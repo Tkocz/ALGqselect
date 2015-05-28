@@ -15,6 +15,8 @@
 
 typedef struct arrayT {
 	int *values;
+	int lIndex;
+	int rIndex;
 	int nValues;
 } *arrayT;
 

@@ -5,7 +5,8 @@
 
 void floyd(arrayT Array, int range){
 	int *isUsed;
-	int i;
+	int i, counter;
+	counter = 0;
 
 	if (Array->nValues > range)		//Errorhandling for faulty input
 		range = Array->nValues;
@@ -24,6 +25,7 @@ void floyd(arrayT Array, int range){
 		while (isUsed[r])	//If r is used
 		{
 			r = rand() % (range + 1);
+			counter++;
 		}
 		Array->values[im++] = r;
 		isUsed[r] = 1;
