@@ -23,26 +23,17 @@ int quickSelect(arrayT Array, int kValue, int partAlg){
 
 //ALGORITHM Bruteselect(arrayT, k)
 int bruteSelect(arrayT Array, int k){
-	int i, j, tmp,kLowestResult, *kLowest;
-	tmp = 0;
-	kLowest = calloc(k+1, sizeof(int));
+	int i, j, counter;
+	counter = 0;
 
-	for (i = 0; i <= k; i++){
-		kLowest[i] = 999999;
-	}
-
-	for (j = 0; j <= k; j++){
-		for (i = 0; i < Array->rIndex; i++){
-			if (Array->values[i] < kLowest[j]){
-				kLowest[j] = Array->values[i];
-				tmp = i;
+	for (j = 0; j < k; j++){
+		for (i = j; i <= Array->rIndex; i++){
+			if (Array->values[i] < Array->values[j]){
+				swap(Array, i, j);
 			}
+			counter++;
 		}
-		Array->values[tmp] = kLowest[k];
 	}
-	kLowestResult =  kLowest[k - 1];
-	free(kLowest);
-
-	return kLowestResult;
-
+	printf("Number of loops in Bruteselect: %d\n", counter);
+	return Array->values[k-1];
 }

@@ -14,7 +14,8 @@ arrayT newArrayT(void) {
 	return array;
 }
 void swap(arrayT Array, int x, int y){
-	
+	if (x >= Array->nValues || x >= Array->nValues)
+		printf("Index overload");
 	if (x == y)
 		return;
 	int tmp;

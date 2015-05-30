@@ -15,7 +15,8 @@ void timer(void){
 
 	origArray = newArrayT();
 	Array = newArrayT();
-	floyd(origArray, RANGE);
+	//floyd(origArray, RANGE);
+	sequencer(origArray, RANGE);
 
 	kElement = 1 + rand() % (ARRAYSIZE);
 

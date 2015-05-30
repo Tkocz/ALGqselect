@@ -11,7 +11,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source.cpp" />
     <ClCompile Include="source\analyzer.c" />
     <ClCompile Include="source\array.c" />
     <ClCompile Include="source\floyd.c" />

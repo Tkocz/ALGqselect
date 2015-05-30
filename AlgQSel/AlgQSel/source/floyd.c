@@ -3,17 +3,14 @@
 #include "floyd.h"
 #include "array.h"
 
-void floyd(arrayT Array, int range){
+void sequencer(arrayT Array, int range){
 	int *isUsed;
 	int i, counter;
 	counter = 0;
-
 	if (Array->nValues > range)		//Errorhandling for faulty input
 		range = Array->nValues;
 
-	isUsed = malloc(sizeof(int)*range);
-	for (i = 0; i < range; i++)
-		isUsed[i] = 0;
+	isUsed = calloc(range,sizeof(int));
 
 	int in, im;
 
@@ -29,11 +26,13 @@ void floyd(arrayT Array, int range){
 		}
 		Array->values[im++] = r;
 		isUsed[r] = 1;
+		counter++;
 	}
+	free(isUsed);
+	printf("number of loops : %d\n", counter);
 }
-/*
+
 void floyd(arrayT Array, int range){
-	int *isUsed;
 	int i, t, pos;
 	pos = 0;
 
@@ -51,13 +50,18 @@ void floyd(arrayT Array, int range){
 			Array->values[pos] = i;
 		pos++;
 	}
+	for (i = Array->nValues-1; i >= 2; i--){
+		swap(Array, (rand() % i), i);
+		pos++;
+	}
+	printf("number of loops : %d\n", pos);
 }
-*/
+
 int isNotIn(arrayT Array, int t){
 	int i;
 	for (i = 0; i < Array->nValues; i++){
 		if (Array->values[i] == t)
-			return 1;
+			return 0;
 	}
-	return 0;
+	return 1;
 }
