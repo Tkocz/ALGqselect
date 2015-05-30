@@ -39,3 +39,12 @@ void freeArrayT(arrayT Array){
 	Array->rIndex = NULL;
 	free(Array);
 }
+
+void printArray(arrayT Array){
+	int i;
+	printf("Array[");
+	for (i = 0; i < ARRAYSIZE; i++){
+		printf("%d, ", Array->values[i]);
+	}
+	printf("]\n");
+}

@@ -14,14 +14,10 @@
 #define ARRAYSIZE	1000				//RANGE have to be defined as *at least* ARRAYSIZE
 #define RANGE		1250				//as every element needs to be unique.
 
-/*typedef struct counterT {
-	int *lomuto;
-	int *hoare;
-	int *brute;
-	int nReps;
-} *counterT;
-*/
-void initCounter(void);
+typedef struct counterCDT *counterADT;
+
+counterADT initCounter(void);
+void freeCounter(counterADT counter);
 
 void timer(void);
 
