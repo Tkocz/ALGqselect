@@ -13,8 +13,8 @@ void timer(void){
 	arrayT Array, origArray;
 	int kElement;
 
-	origArray = newArrayT(ARRAYSIZE);
-	Array = newArrayT(ARRAYSIZE);
+	origArray = newArrayT();
+	Array = newArrayT();
 	floyd(origArray, RANGE);
 
 	kElement = 1 + rand() % (ARRAYSIZE);
@@ -28,12 +28,8 @@ void timer(void){
 	/* quickselect with Lomuto-partition */
 	start = GetCurrentCPUTime();
 	for (i = 0; i < NUMBEROFREPS; i++) {
-		memcpy(Array->values, origArray->values, sizeof(int)*ARRAYSIZE);
-		Array->nValues = origArray->nValues;
-		Array->lIndex = origArray->lIndex;
-		Array->rIndex = origArray->rIndex;
+		restoreArray(Array, origArray);
 		result = quickSelect(Array, kElement, LOMUTO);
-		//freeArrayT(Array);
 	}
 
 	printf("Time to run quickSelect with LOMUTO-partition on a %d elements large array, finding the k:th smallest element:\n %g usecs\n\n", ARRAYSIZE,
@@ -43,33 +39,24 @@ void timer(void){
 	/* quickselect with Hoare-partition */
 	start = GetCurrentCPUTime();
 	for (i = 0; i < NUMBEROFREPS; i++) {
-		memcpy(Array->values, origArray->values, sizeof(int)*ARRAYSIZE);
-		Array->nValues = origArray->nValues;
-		Array->lIndex = origArray->lIndex;
-		Array->rIndex = origArray->rIndex;
+		restoreArray(Array, origArray);
 		result = quickSelect(Array, kElement, HOARE);
-		//freeArrayT(Array);
 	}
 	printf("Time to run quickSelect with HOARE-partition on a %d elements large array, finding the k:th smallest element:\n %g usecs\n\n", ARRAYSIZE,
 		1000.0*(GetCurrentCPUTime() - start) / (NUMBEROFREPS));
 	printf("The *%d* smallest element was %d\n\n", kElement, result);
-
-
+	
 	/* bruteselect */
 	start = GetCurrentCPUTime();
 	for (i = 0; i < NUMBEROFREPS; i++) {
-		memcpy(Array->values, origArray->values, sizeof(int)*ARRAYSIZE);
-		Array->nValues = origArray->nValues;
-		Array->lIndex = origArray->lIndex;
-		Array->rIndex = origArray->rIndex;
+		restoreArray(Array, origArray);
 		result = bruteSelect(Array, kElement);
 	}
 	printf("Time to run a bruteforce-version Select on a %d elements large array, finding the k:th smallest element:\n %g usecs\n\n", ARRAYSIZE,
 		1000.0*(GetCurrentCPUTime() - start) / (NUMBEROFREPS));
 	printf("The *%d* smallest element was %d\n\n", kElement, result);
-
-	system("pause");
-
+	freeArrayT(Array);
+	freeArrayT(origArray);
 }
 
 static double GetCurrentCPUTime(){

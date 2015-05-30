@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 #include "partAlg.h"
 #include "selectionAlg.h"
 #include "floyd.h"
@@ -7,6 +9,7 @@
 #include "playground.h"
 
 main(){
+	timer();/*
 	char answer;
 	while (1){
 		system("cls");
@@ -21,5 +24,5 @@ main(){
 			playGround();
 		else 
 			break;
-	}
+	}*/
 }
