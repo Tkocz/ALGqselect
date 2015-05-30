@@ -34,6 +34,5 @@ int bruteSelect(arrayT Array, int k){
 			counter++;
 		}
 	}
-	printf("Number of loops in Bruteselect: %d\n", counter);
 	return Array->values[k-1];
 }
