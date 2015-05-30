@@ -1,7 +1,6 @@
 ﻿#include "selectionAlg.h"
 
 int quickSelect(arrayT Array, int kValue, int partAlg){
-
 	int s;
 
 	if (partAlg)
@@ -22,11 +21,11 @@ int quickSelect(arrayT Array, int kValue, int partAlg){
 }
 
 //ALGORITHM Bruteselect(arrayT, k)
-int bruteSelect(arrayT Array, int k){
+int bruteSelect(arrayT Array, int kValue){
 	int i, j, counter;
 	counter = 0;
 
-	for (j = 0; j < k; j++){
+	for (j = 0; j < kValue; j++){
 		for (i = j; i <= Array->rIndex; i++){
 			if (Array->values[i] < Array->values[j]){
 				swap(Array, i, j);
@@ -34,5 +33,5 @@ int bruteSelect(arrayT Array, int k){
 			counter++;
 		}
 	}
-	return Array->values[k-1];
+	return Array->values[kValue-1];
 }

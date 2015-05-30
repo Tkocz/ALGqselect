@@ -5,12 +5,13 @@
 #include "analyzer.h"
 
 arrayT newArrayT(void) {
-	arrayT array = calloc(ARRAYSIZE, sizeof(int));
+	arrayT array = malloc(4*sizeof(int));
 
-	array->values = calloc(ARRAYSIZE, sizeof(int));
+	array->values = malloc(ARRAYSIZE*sizeof(int));
 	array->nValues = ARRAYSIZE;
 	array->lIndex = 0;
 	array->rIndex = ARRAYSIZE - 1;
+
 	return array;
 }
 void swap(arrayT Array, int x, int y){

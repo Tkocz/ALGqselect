@@ -8,8 +8,9 @@
 #include "analyzer.h"
 #include "playground.h"
 
+
 main(){
-	timer();/*
+	performance();/*
 	char answer;
 	while (1){
 		system("cls");

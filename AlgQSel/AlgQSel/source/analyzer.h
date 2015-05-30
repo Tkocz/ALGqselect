@@ -9,16 +9,11 @@
 #ifndef _analyzer_h_
 #define _analyzer_h_
 
-#define NUMBEROFREPS 30
+#define NUMBEROFREPS 300
 
 #define ARRAYSIZE	1000				//RANGE have to be defined as *at least* ARRAYSIZE
 #define RANGE		1250				//as every element needs to be unique.
 
-typedef struct counterCDT *counterADT;
-
-counterADT initCounter(void);
-void freeCounter(counterADT counter);
-
-void timer(void);
+void performance(void);
 
 #endif

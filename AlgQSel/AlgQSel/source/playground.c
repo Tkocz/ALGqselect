@@ -11,7 +11,7 @@ void playGround(void){
 	arrayT Array, origArray;
 	int i, kElement, kValue;
 	origArray = newArrayT(ARRAYSIZE);
-	floyd(origArray, RANGE);
+	sequencer(origArray, RANGE);
 	Array = newArrayT(ARRAYSIZE);
 	memcpy(Array->values, origArray->values, sizeof(int)*ARRAYSIZE);
 
