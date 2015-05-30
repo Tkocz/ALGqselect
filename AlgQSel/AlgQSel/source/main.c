@@ -3,7 +3,7 @@
 #include <time.h>
 #include "partAlg.h"
 #include "selectionAlg.h"
-#include "floyd.h"
+#include "sequencer.h"
 #include "array.h"
 #include "analyzer.h"
 #include "playground.h"

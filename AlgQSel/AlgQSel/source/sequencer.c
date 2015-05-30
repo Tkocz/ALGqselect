@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "floyd.h"
+#include "sequencer.h"
 #include "array.h"
 
 void sequencer(arrayT Array, int range){
@@ -17,11 +17,11 @@ void sequencer(arrayT Array, int range){
 	im = 0;
 
 	for (in = range - Array->nValues ; in < range && im < Array->nValues; ++in) {
-		int r = rand() % (range + 1); //Generate a random number r
+		int r = rand() % range; //Generate a random number r
 
 		while (isUsed[r])	//If r is used
 		{
-			r = rand() % (range + 1);
+			r = rand() % range;
 			counter++;
 		}
 		Array->values[im++] = r;
@@ -29,7 +29,6 @@ void sequencer(arrayT Array, int range){
 		counter++;
 	}
 	free(isUsed);
-	printf("number of loops : %d\n", counter);
 }
 
 void floyd(arrayT Array, int range){

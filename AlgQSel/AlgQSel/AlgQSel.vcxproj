@@ -13,7 +13,7 @@
   <ItemGroup>
     <ClCompile Include="source\analyzer.c" />
     <ClCompile Include="source\array.c" />
-    <ClCompile Include="source\floyd.c" />
+    <ClCompile Include="source\sequencer.c" />
     <ClCompile Include="source\selectionAlg.c" />
     <ClCompile Include="source\main.c" />
     <ClCompile Include="source\partAlg.c" />
@@ -22,7 +22,7 @@
   <ItemGroup>
     <ClInclude Include="source\analyzer.h" />
     <ClInclude Include="source\array.h" />
-    <ClInclude Include="source\floyd.h" />
+    <ClInclude Include="source\sequencer.h" />
     <ClInclude Include="source\partAlg.h" />
     <ClInclude Include="source\playground.h" />
     <ClInclude Include="source\selectionAlg.h" />

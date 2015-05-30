@@ -1,7 +1,7 @@
 #include <time.h>
 #include "analyzer.h"
 #include "selectionAlg.h"
-#include "floyd.h"
+#include "sequencer.h"
 #include "array.h"
 
 static double GetCurrentCPUTime(void);

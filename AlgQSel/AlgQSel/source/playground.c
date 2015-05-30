@@ -1,6 +1,6 @@
 #include "playground.h"
 #include "array.h"
-#include "floyd.h"
+#include "sequencer.h"
 #include <stdio.h>
 #include "selectionAlg.h"
 #include "analyzer.h"

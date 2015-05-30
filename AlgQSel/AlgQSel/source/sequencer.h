@@ -1,5 +1,5 @@
 /*
-* File: floyd.h
+* File: sequencer.h
 * --------------
 * Granssnitt för generering av slumpmässig, unik array
 *
@@ -7,10 +7,12 @@
 * Senast modifierad: 17/5 - 2015
 */
 
-#ifndef _floyd_h
-#define _floyd_h
+#ifndef _sequencer_h
+#define _sequencer_h
 
 #include "array.h"
+
+void sequencer(arrayT Array, int range);
 
 //ALGORITHM floyd(ArrayT, range)
 // for J : = N - M + 1 to N do
