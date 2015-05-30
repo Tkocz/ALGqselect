@@ -1,0 +1,6 @@
+Number of repetitions; 300
+
+counter->hoare->LoopCounts: 0
+counter->hoare->recursions: 0
+counter->hoare->timer: 0
+ counter->hoare->memUse: 0
