@@ -23,16 +23,16 @@ int quickSelect(arrayT Array, int kValue, int partAlg){
 
 //ALGORITHM Bruteselect(arrayT, k)
 int bruteSelect(arrayT Array, int k){
-	int i, j, tmp, *kLowest;
+	int i, j, tmp,kLowestResult, *kLowest;
 	tmp = 0;
-	kLowest = malloc(sizeof(int)*k);
+	kLowest = calloc(k+1, sizeof(int));
 
 	for (i = 0; i <= k; i++){
 		kLowest[i] = 999999;
 	}
 
 	for (j = 0; j <= k; j++){
-		for (i = 0; i < Array->nValues; i++){
+		for (i = 0; i < Array->rIndex; i++){
 			if (Array->values[i] < kLowest[j]){
 				kLowest[j] = Array->values[i];
 				tmp = i;
@@ -40,5 +40,9 @@ int bruteSelect(arrayT Array, int k){
 		}
 		Array->values[tmp] = kLowest[k];
 	}
-	return kLowest[k - 1];
+	kLowestResult =  kLowest[k - 1];
+	free(kLowest);
+
+	return kLowestResult;
+
 }

@@ -10,11 +10,15 @@ int lomutoPartition(arrayT Array){
 	//Input: A subarray A[l..r] of array A[0..n − 1], defined by its left and right
 	// indices l and r (l ≤ r)
 	//Output: Partition of A[l..r] and the new position of the pivot
-	int p, s, i;
+	int p, s, i, median;
+
+	median = medianOfThree(Array);
+	swap(Array, median, Array->lIndex);
 	
-	p = Array->values[Array->lIndex];// medianOfThree(Array)];
+	p = Array->values[Array->lIndex];
 	s = Array->lIndex;
-	for (i = Array->lIndex+1; i <= Array->rIndex; i++){
+
+	for (i = Array->lIndex; i <= Array->rIndex; i++){
 		if (Array->values[i] < p){
 			s++;
 			swap(Array, s, i);
@@ -26,7 +30,7 @@ int lomutoPartition(arrayT Array){
 
 int hoarePartition(arrayT Array){
 	int p, i, j;
-	p = Array->values[Array->lIndex];//medianOfThree(Array)];
+	p = Array->values[medianOfThree(Array)];
 	i = Array->lIndex;
 	j = Array->rIndex;
 	while (i < j){
@@ -44,7 +48,10 @@ int hoarePartition(arrayT Array){
 
 //ALGORITHM medianOfThree(Array, n)
 //Returns the median of the first, last and middle element from Array.
-static int medianOfThree(arrayT Array){
+/*static int medianOfThree(arrayT Array){
+	if (Array->rIndex - Array->lIndex < 3)
+		return Array->lIndex;
+
 	int m = Array->rIndex / 2;
 	int r = Array->rIndex;
 	int l = Array->lIndex;
@@ -64,4 +71,12 @@ static int medianOfThree(arrayT Array){
 			return m;
 	}
 	return r;
+}*/
+static int medianOfThree(arrayT Array){
+	int median;
+	int m = Array->rIndex / 2;
+	int r = Array->rIndex;
+	int l = Array->lIndex;
+	median = max(min(l, m), min(max(l, m), r));
+	return(median);
 }

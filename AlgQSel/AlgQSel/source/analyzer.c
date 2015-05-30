@@ -35,7 +35,7 @@ void timer(void){
 	printf("Time to run quickSelect with LOMUTO-partition on a %d elements large array, finding the k:th smallest element:\n %g usecs\n\n", ARRAYSIZE,
 		1000.0*(GetCurrentCPUTime() - start) / (NUMBEROFREPS));
 	printf("The *%d* smallest element was %d\n\n", kElement, result);
-
+	
 	/* quickselect with Hoare-partition */
 	start = GetCurrentCPUTime();
 	for (i = 0; i < NUMBEROFREPS; i++) {
