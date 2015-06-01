@@ -7,24 +7,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef char *string;
-
-typedef struct algTrackT {
-	int timer;
-	int recursions;
-	int LoopCounts;
-	int memUse;
-} *algTrackT;
-
-typedef struct counterT {
-	int			numReps;
-	algTrackT	lomuto;
-	algTrackT	hoare;
-	algTrackT	brute;
-} *counterT;
-
-static counterT counter;
-
 static double GetCurrentCPUTime(void);
 counterT initCounter(void);
 void freeCounter(counterT counter);
@@ -36,13 +18,17 @@ void performance(void){
 
 
 	arrayT Array, origArray;
-	int kElement;
+	int *kElement;
+	kElement = malloc(NUMBEROFREPS*sizeof(int));
 
 	origArray = newArrayT();
 	Array = newArrayT();
 	sequencer(origArray, RANGE);
-
 	counter = initCounter();
+
+	for (i = 0; i < NUMBEROFREPS; i++) {
+		kElement[i] = rand() % (ARRAYSIZE);
+	}
 
 	printArray(origArray);
 
@@ -50,33 +36,37 @@ void performance(void){
 	start = GetCurrentCPUTime();
 	for (i = 0; i < NUMBEROFREPS; i++) {
 		restoreArray(Array, origArray);
-		kElement = rand() % (ARRAYSIZE);
-		result = quickSelect(Array, kElement, LOMUTO);
+		result = quickSelect(Array, kElement[i], LOMUTO, counter);
 	}
-	printf("Average time to run quickSelect with LOMUTO-partition on a %d elements large array,\n finding the k:th smallest element:\n %g usecs\n\n", 
-		ARRAYSIZE, 1000.0*(GetCurrentCPUTime() - start) / (NUMBEROFREPS));
+	counter->lomuto->timer = 1000.0*(GetCurrentCPUTime() - start) / (NUMBEROFREPS);
+	printf("Average time to run quickSelect with LOMUTO-partition on a %d elements large array,\n finding the k:th smallest element:\n %g usecs\n\n",
+		ARRAYSIZE, counter->lomuto->timer);
 
-	
 	/* quickselect with Hoare-partition */
 	start = GetCurrentCPUTime();
 	for (i = 0; i < NUMBEROFREPS; i++) {
 		restoreArray(Array, origArray);
-		kElement = rand() % (ARRAYSIZE);
-		result = quickSelect(Array, kElement, HOARE);
+		result = quickSelect(Array, kElement[i], HOARE, counter);
 	}
-	printf("Average time to run quickSelect with HOARE-partition on a %d elements large array,\n finding the k:th smallest element:\n %g usecs\n\n", 
-		ARRAYSIZE, 1000.0*(GetCurrentCPUTime() - start) / (NUMBEROFREPS));
-	
+	counter->hoare->timer = 1000.0*(GetCurrentCPUTime() - start) / (NUMBEROFREPS);
+	printf("Average time to run quickSelect with HOARE-partition on a %d elements large array,\n finding the k:th smallest element:\n %g usecs\n\n",
+		ARRAYSIZE, counter->hoare->timer);
+
 	/* bruteselect */
 	start = GetCurrentCPUTime();
 	for (i = 0; i < NUMBEROFREPS; i++) {
 		restoreArray(Array, origArray);
-		kElement = rand() % (ARRAYSIZE);
-		counter->brute->memUse = bruteSelect(Array, kElement);
+		result = bruteSelect(Array, kElement[i], counter);
 	}
-	printf("Average time to run a bruteforce-version Select on a %d elements large array,\n finding the k:th smallest element:\n %g usecs\n\n", 
-		ARRAYSIZE, 1000.0*(GetCurrentCPUTime() - start) / (NUMBEROFREPS));
+	counter->brute->timer = 1000.0*(GetCurrentCPUTime() - start) / (NUMBEROFREPS);
+	printf("Average time to run a bruteforce-version Select on a %d elements large array,\n finding the k:th smallest element:\n %g usecs\n\n",
+		ARRAYSIZE, counter->brute->timer);
 
+	counter->brute->LoopCounts /= NUMBEROFREPS;
+	counter->hoare->LoopCounts /= NUMBEROFREPS;
+	counter->lomuto->LoopCounts /= NUMBEROFREPS;
+	counter->hoare->recursions /= NUMBEROFREPS;
+	counter->lomuto->recursions /= NUMBEROFREPS;
 	save(counter);
 
 	freeArrayT(Array);
@@ -91,9 +81,9 @@ static double GetCurrentCPUTime(){
 counterT initCounter(void){
 
 	counterT counter = calloc(4, sizeof(counterT));
-	algTrackT brute = calloc(4, sizeof(algTrackT));
-	algTrackT lomuto = calloc(4, sizeof(algTrackT));
-	algTrackT hoare = calloc(4, sizeof(algTrackT));
+	algTrackT brute = calloc(4, sizeof(double));
+	algTrackT lomuto = calloc(4, sizeof(double));
+	algTrackT hoare = calloc(4, sizeof(double));
 
 	counter->brute = brute;
 	counter->lomuto = lomuto;
@@ -111,31 +101,3 @@ void freeCounter(counterT counter){
 	free(counter->hoare);
 	free(counter);
 }
-
-void save(counterT counter) {
-	string filename = "stats.txt";
-	FILE* stats = fopen(filename, "w");
-	
-	if (stats == NULL) {
-		printf("Could not open file %s for writing.", filename);
-	}
-	fprintf(stats, "Number of repetitions; %d\n\n", counter->numReps);
-
-		fprintf(stats, "counter->lomuto->LoopCounts: %d\n", counter->hoare->LoopCounts);
-		fprintf(stats, "counter->lomuto->recursions: %d\n", counter->hoare->recursions);
-		fprintf(stats, "counter->lomuto->timer: %d\n", counter->hoare->timer);
-		fprintf(stats, " counter->lomuto->memUse: %d\n\n", counter->hoare->memUse);
-
-		fprintf(stats, "counter->hoare->LoopCounts: %d\n", counter->hoare->LoopCounts);
-		fprintf(stats, "counter->hoare->recursions: %d\n", counter->hoare->recursions);
-		fprintf(stats, "counter->hoare->timer: %d\n", counter->hoare->timer);
-		fprintf(stats, " counter->hoare->memUse: %d\n\n", counter->hoare->memUse);
-
-		fprintf(stats, "counter->brute->LoopCounts: %d\n", counter->hoare->LoopCounts);
-		fprintf(stats, "counter->brute->recursions: %d\n", counter->hoare->recursions);
-		fprintf(stats, "counter->brute->timer: %d\n", counter->hoare->timer);
-		fprintf(stats, " counter->brute->memUse: %d\n\n", counter->hoare->memUse);
-
-	fclose(stats);
-}
-void sendData(nåntingnånting)

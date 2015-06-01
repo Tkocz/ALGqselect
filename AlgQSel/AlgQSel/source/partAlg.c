@@ -4,7 +4,7 @@
 
 static int medianOfThree(arrayT Array);
 
-int lomutoPartition(arrayT Array){
+int lomutoPartition(arrayT Array, counterT counter){
 	//	ALGORITHM LomutoPartition(A[l..r])
 	//Partitions subarray by Lomuto’s algorithm using first element as pivot
 	//Input: A subarray A[l..r] of array A[0..n − 1], defined by its left and right
@@ -19,6 +19,7 @@ int lomutoPartition(arrayT Array){
 	s = Array->lIndex;
 
 	for (i = Array->lIndex; i <= Array->rIndex; i++){
+		counter->lomuto->LoopCounts++;
 		if (Array->values[i] < p){
 			s++;
 			swap(Array, s, i);
@@ -28,16 +29,20 @@ int lomutoPartition(arrayT Array){
 	return s;
 }
 
-int hoarePartition(arrayT Array){
+int hoarePartition(arrayT Array, counterT counter){
 	int p, i, j;
 	p = Array->values[medianOfThree(Array)];
 	i = Array->lIndex;
 	j = Array->rIndex;
 	while (i < j){
-		while (Array->values[i] < p)
+		while (Array->values[i] < p){
 			i++;
-		while (Array->values[j] > p)
+			counter->hoare->LoopCounts++;
+		}
+		while (Array->values[j] > p){
 			j--;
+			counter->hoare->LoopCounts++;
+		}
 		swap(Array, i, j);
 	}
 	swap(Array, i, j);

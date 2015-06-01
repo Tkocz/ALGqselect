@@ -36,6 +36,9 @@
     <ClCompile Include="source\sequencer.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\savefile.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\partAlg.h">
@@ -54,6 +57,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sequencer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\savefile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

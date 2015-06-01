@@ -13,6 +13,7 @@
 #include <stdio.h>
 #include "partAlg.h"
 #include "array.h"
+#include "analyzer.h"
 
 #define LOMUTO		0
 #define HOARE		1
@@ -22,7 +23,7 @@
 //Input: Subarray Array[l..r] of Array[0..n − 1] of orderable unique elements,
 // size of array (n) and integer k ( 1 <= k <= (r − l + 1))
 //Output: The value of the kth smallest element in Array[l..r]
-int quickSelect(arrayT Array, int kValue, int partAlg);
+int quickSelect(arrayT Array, int kValue, int partAlg, counterT counter);
 
 
 //ALGORITHM Bruteselect(Array[l..r], n, k)
@@ -31,6 +32,6 @@ int quickSelect(arrayT Array, int kValue, int partAlg);
 //Input: Array[0..n − 1] of orderable unique elements, size of Array (n) and
 // integer k (1 <= k <= (r − l + 1))
 //Output: The value of the kth smallest element in Array[l..r]
-int bruteSelect(arrayT Array, int k);
+int bruteSelect(arrayT Array, int k, counterT counter);
 
 #endif

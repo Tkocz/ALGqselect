@@ -23,7 +23,7 @@ void playGround(void){
 	//kElement = 3;
 	kElement = rand() % (ARRAYSIZE + 1);
 	printf("The %d:d smallest element\n", kElement);
-	kValue = bruteSelect(Array, kElement);
+	kValue = bruteSelect(Array, kElement, NULL);
 	//kValue = quickSelect(Array, kElement, HOARE);
 	printf("%d\n\n", kValue);
 
