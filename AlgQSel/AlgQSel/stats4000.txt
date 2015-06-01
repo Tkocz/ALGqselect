@@ -1,0 +1,11 @@
+Size of Array: 4000	Number of repetitions: 300
+
+counter->lomuto->LoopCounts: 11503
+counter->lomuto->recursions: 14
+counter->lomuto->timer: 676.667
+counter->hoare->LoopCounts: 12083
+counter->hoare->recursions: 14
+counter->hoare->timer: 570
+counter->brute->LoopCounts: 18624
+counter->brute->recursions: 0
+counter->brute->timer: 350963

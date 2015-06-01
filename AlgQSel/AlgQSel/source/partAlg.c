@@ -18,7 +18,7 @@ int lomutoPartition(arrayT Array, counterT counter){
 	p = Array->values[Array->lIndex];
 	s = Array->lIndex;
 
-	for (i = Array->lIndex; i <= Array->rIndex; i++){
+	for (i = Array->lIndex+1; i <= Array->rIndex; i++){
 		counter->lomuto->LoopCounts++;
 		if (Array->values[i] < p){
 			s++;
@@ -46,7 +46,6 @@ int hoarePartition(arrayT Array, counterT counter){
 		swap(Array, i, j);
 	}
 	swap(Array, i, j);
-	//swap(Array, Array->lIndex, j);
 
 	return j;
 }

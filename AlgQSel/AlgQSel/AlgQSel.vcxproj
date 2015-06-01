@@ -34,7 +34,11 @@
     <None Include="docs\Qselect.docx" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="stats.txt" />
+    <Text Include="stats1000.txt" />
+    <Text Include="stats10000.txt" />
+    <Text Include="stats2000.txt" />
+    <Text Include="stats4000.txt" />
+    <Text Include="stats8000.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{2B2C0578-64EE-4C53-9E91-C8C8C06256A5}</ProjectGuid>
