@@ -23,6 +23,8 @@ typedef struct counterT {
 	algTrackT	brute;
 } *counterT;
 
+static counterT counter;
+
 static double GetCurrentCPUTime(void);
 counterT initCounter(void);
 void freeCounter(counterT counter);
@@ -31,7 +33,7 @@ void save(counterT counter);
 void performance(void){
 	double start;
 	int i, result;
-	counterT counter;
+
 
 	arrayT Array, origArray;
 	int kElement;
@@ -119,10 +121,21 @@ void save(counterT counter) {
 	}
 	fprintf(stats, "Number of repetitions; %d\n\n", counter->numReps);
 
+		fprintf(stats, "counter->lomuto->LoopCounts: %d\n", counter->hoare->LoopCounts);
+		fprintf(stats, "counter->lomuto->recursions: %d\n", counter->hoare->recursions);
+		fprintf(stats, "counter->lomuto->timer: %d\n", counter->hoare->timer);
+		fprintf(stats, " counter->lomuto->memUse: %d\n\n", counter->hoare->memUse);
+
 		fprintf(stats, "counter->hoare->LoopCounts: %d\n", counter->hoare->LoopCounts);
 		fprintf(stats, "counter->hoare->recursions: %d\n", counter->hoare->recursions);
 		fprintf(stats, "counter->hoare->timer: %d\n", counter->hoare->timer);
-		fprintf(stats, " counter->hoare->memUse: %d\n", counter->hoare->memUse);
+		fprintf(stats, " counter->hoare->memUse: %d\n\n", counter->hoare->memUse);
+
+		fprintf(stats, "counter->brute->LoopCounts: %d\n", counter->hoare->LoopCounts);
+		fprintf(stats, "counter->brute->recursions: %d\n", counter->hoare->recursions);
+		fprintf(stats, "counter->brute->timer: %d\n", counter->hoare->timer);
+		fprintf(stats, " counter->brute->memUse: %d\n\n", counter->hoare->memUse);
 
 	fclose(stats);
 }
+void sendData(nåntingnånting)

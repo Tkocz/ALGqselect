@@ -1,6 +1,17 @@
 Number of repetitions; 300
 
+counter->lomuto->LoopCounts: 0
+counter->lomuto->recursions: 0
+counter->lomuto->timer: 0
+ counter->lomuto->memUse: 0
+
 counter->hoare->LoopCounts: 0
 counter->hoare->recursions: 0
 counter->hoare->timer: 0
  counter->hoare->memUse: 0
+
+counter->brute->LoopCounts: 0
+counter->brute->recursions: 0
+counter->brute->timer: 0
+ counter->brute->memUse: 0
+

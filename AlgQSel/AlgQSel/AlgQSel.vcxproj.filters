@@ -61,4 +61,7 @@
     <None Include="docs\IndUppg_Algoritmer_vt15.pdf" />
     <None Include="docs\Qselect.docx" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="stats.txt" />
+  </ItemGroup>
 </Project>
