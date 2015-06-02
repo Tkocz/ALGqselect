@@ -29,5 +29,5 @@ void save(counterT counter) {
 	fprintf(stats, "Time: %g usecs\n", counter->brute->timer);
 
 	fclose(stats);
-	printf("The data has been saved to %s", stats);
+	printf("The data has been saved to %s\n", filename);
 }
