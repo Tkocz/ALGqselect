@@ -37,7 +37,7 @@ void performance(void){
 		result = quickSelect(Array, kElement[i], LOMUTO, counter);
 	}
 	counter->lomuto->timer = 1000.0*(GetCurrentCPUTime() - start) / (NUMBEROFREPS);
-	printf("Average time to run quickSelect with LOMUTO-partition on a %d elements large array,\n finding the k:th smallest element:\n %g msecs\n\n",
+	printf("Average time to run quickSelect with LOMUTO-partition on a %d elements large array,\n finding the k:th smallest element:\n %g usecs\n\n",
 		ARRAYSIZE, counter->lomuto->timer);
 
 	/* quickselect with Hoare-partition */
@@ -47,7 +47,7 @@ void performance(void){
 		result = quickSelect(Array, kElement[i], HOARE, counter);
 	}
 	counter->hoare->timer = 1000.0*(GetCurrentCPUTime() - start) / (NUMBEROFREPS);
-	printf("Average time to run quickSelect with HOARE-partition on a %d elements large array,\n finding the k:th smallest element:\n %g msecs\n\n",
+	printf("Average time to run quickSelect with HOARE-partition on a %d elements large array,\n finding the k:th smallest element:\n %g usecs\n\n",
 		ARRAYSIZE, counter->hoare->timer);
 
 	/* bruteselect */
@@ -57,7 +57,7 @@ void performance(void){
 		result = bruteSelect(Array, kElement[i], counter);
 	}
 	counter->brute->timer = 1000.0*(GetCurrentCPUTime() - start) / (NUMBEROFREPS);
-	printf("Average time to run a bruteforce-version Select on a %d elements large array,\n finding the k:th smallest element:\n %g msecs\n\n",
+	printf("Average time to run a bruteforce-version Select on a %d elements large array,\n finding the k:th smallest element:\n %g usecs\n\n",
 		ARRAYSIZE, counter->brute->timer);
 
 	counter->brute->LoopCounts /= NUMBEROFREPS;
