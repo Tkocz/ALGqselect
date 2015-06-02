@@ -20,12 +20,14 @@ typedef struct arrayT {
 	int nValues;
 } *arrayT;
 
-arrayT newArrayT();
+arrayT newArrayT(int size);
 
 void swap(arrayT Array, int x, int y);
 
 void restoreArray(arrayT Array, arrayT origArray);
 
 void freeArrayT(arrayT Array);
+
+void printArray(arrayT Array);
 
 #endif

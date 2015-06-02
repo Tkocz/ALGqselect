@@ -1,11 +1,9 @@
-Size of Array: 1000	Number of repetitions: 300
-
-counter->lomuto->LoopCounts: 3021
-counter->lomuto->recursions: 11
-counter->lomuto->timer: 233.333
-counter->hoare->LoopCounts: 2767
-counter->hoare->recursions: 11
-counter->hoare->timer: 166.667
-counter->brute->LoopCounts: 1634
-counter->brute->recursions: 0
-counter->brute->timer: 23053.3
+Size of Array: 1000Quicksort - Lomuto LoopCounts: 3056
+Recursions: 11
+Time: 233.333 usecs
+Quicksort - Hoare's LoopCounts: 2872
+Recursions: 12
+Time: 233.333 usecs
+BruteSort LoopCounts: 12673
+Recursions: 0
+Time: 26933.3 usecs

@@ -4,13 +4,13 @@
 #include <string.h>
 #include "analyzer.h"
 
-arrayT newArrayT(void) {
+arrayT newArrayT(int size) {
 	arrayT array = malloc(4*sizeof(int));
 
-	array->values = malloc(ARRAYSIZE*sizeof(int));
-	array->nValues = ARRAYSIZE;
+	array->values = malloc(size*sizeof(int));
+	array->nValues = size;
 	array->lIndex = 0;
-	array->rIndex = ARRAYSIZE - 1;
+	array->rIndex = size - 1;
 
 	return array;
 }
@@ -26,7 +26,7 @@ void swap(arrayT Array, int x, int y){
 }
 
 void restoreArray(arrayT Array, arrayT origArray){
-	memcpy(Array->values, origArray->values, sizeof(int)*ARRAYSIZE);
+	memcpy(Array->values, origArray->values, sizeof(int)*origArray->nValues);
 	Array->nValues = origArray->nValues;
 	Array->lIndex = origArray->lIndex;
 	Array->rIndex = origArray->rIndex;
@@ -44,7 +44,7 @@ void freeArrayT(arrayT Array){
 void printArray(arrayT Array){
 	int i;
 	printf("Array[");
-	for (i = 0; i < ARRAYSIZE; i++){
+	for (i = 0; i < Array->nValues; i++){
 		printf("%d, ", Array->values[i]);
 	}
 	printf("]\n");

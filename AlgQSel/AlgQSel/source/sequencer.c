@@ -73,9 +73,7 @@ void floyd(arrayT Array, int range){
 	}
 	for (i = Array->nValues-1; i >= 2; i--){
 		swap(Array, (rand() % i), i);
-		pos++;
 	}
-	printf("number of loops : %d\n", pos);
 }
 
 int isNotIn(arrayT Array, int t){

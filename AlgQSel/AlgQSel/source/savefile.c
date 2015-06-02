@@ -15,19 +15,19 @@ void save(counterT counter) {
 		printf("Could not open file %s for writing.", filename);
 	}
 	fprintf(stats, "Size of Array: %d", ARRAYSIZE);
-	fprintf(stats, "	Number of repetitions: %d\n\n", counter->numReps);
 
-	fprintf(stats, "counter->lomuto->LoopCounts: %d\n", counter->lomuto->LoopCounts);
-	fprintf(stats, "counter->lomuto->recursions: %d\n", counter->lomuto->recursions);
-	fprintf(stats, "counter->lomuto->timer: %g\n", counter->lomuto->timer);
+	fprintf(stats, "Quicksort - Lomuto LoopCounts: %d\n", counter->lomuto->LoopCounts);
+	fprintf(stats, "Recursions: %d\n", counter->lomuto->recursions);
+	fprintf(stats, "Time: %g usecs\n", counter->lomuto->timer);
 
-	fprintf(stats, "counter->hoare->LoopCounts: %d\n", counter->hoare->LoopCounts);
-	fprintf(stats, "counter->hoare->recursions: %d\n", counter->hoare->recursions);
-	fprintf(stats, "counter->hoare->timer: %g\n", counter->hoare->timer);
+	fprintf(stats, "Quicksort - Hoare's LoopCounts: %d\n", counter->hoare->LoopCounts);
+	fprintf(stats, "Recursions: %d\n", counter->hoare->recursions);
+	fprintf(stats, "Time: %g usecs\n", counter->hoare->timer);
 
-	fprintf(stats, "counter->brute->LoopCounts: %d\n", counter->brute->LoopCounts);
-	fprintf(stats, "counter->brute->recursions: %d\n", counter->brute->recursions);
-	fprintf(stats, "counter->brute->timer: %g\n", counter->brute->timer);
+	fprintf(stats, "BruteSort LoopCounts: %d\n", counter->brute->LoopCounts);
+	fprintf(stats, "Recursions: %d\n", counter->brute->recursions);
+	fprintf(stats, "Time: %g usecs\n", counter->brute->timer);
 
 	fclose(stats);
+	printf("The data has been saved to %s", stats);
 }

@@ -65,13 +65,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="docs\IndUppg_Algoritmer_vt15.pdf" />
-    <None Include="docs\Qselect.docx" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="stats10000.txt" />
     <Text Include="stats1000.txt" />
     <Text Include="stats2000.txt" />
     <Text Include="stats4000.txt" />
     <Text Include="stats8000.txt" />
+    <Text Include="stats16000.txt" />
   </ItemGroup>
 </Project>
