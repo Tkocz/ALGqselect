@@ -8,8 +8,6 @@
 #include <stdlib.h>
 
 static double GetCurrentCPUTime(void);
-counterT initCounter(void);
-void freeCounter(counterT counter);
 void save(counterT counter);
 
 void performance(void){

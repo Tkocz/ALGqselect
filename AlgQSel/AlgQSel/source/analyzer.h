@@ -30,6 +30,8 @@ typedef struct counterT {
 typedef char *string;
 
 static counterT counter;
+counterT initCounter(void);
+void freeCounter(counterT counter);
 
 void performance(void);
 

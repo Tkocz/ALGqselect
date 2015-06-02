@@ -64,5 +64,10 @@ void playGround(void){
 		result[2] = bruteSelect(Array, kValue, counter);
 		printf("The element you sought is %d, %d, %d\n", result[0], result[1], result[2]);
 	}
-	else exit(0);
+	else {
+		freeArrayT(Array);
+		freeArrayT(origArray);
+		freeCounter(counter);
+		exit(0);
+	}
 }
