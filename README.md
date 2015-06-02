@@ -1,5 +1,5 @@
 # ALGqselect
-ALgqselect  v1.0
+ALGqselect  v1.0
 
 I filerna selectionAlg.c och partAlg.c finner man implementationen av QuickSelect & "BruteSelect", 
 samt Lomuto- & Hoare-partition.
