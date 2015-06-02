@@ -3,7 +3,7 @@ Recursions: 11
 Time: 200 usecs
 Quicksort - Hoare's LoopCounts: 2872
 Recursions: 12
-Time: 133.333 usecs
+Time: 166.667 usecs
 BruteSort LoopCounts: 12673
 Recursions: 0
-Time: 21566.7 usecs
+Time: 22200 usecs
