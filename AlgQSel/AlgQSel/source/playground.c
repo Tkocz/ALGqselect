@@ -18,8 +18,11 @@ void playGround(void){
 		scanf("%d", &size);
 
 	printf("Enter what order to search for: \n");
-	while (kValue < 1)
+	while (kValue < 1 || kValue > size){
 		scanf("%d", &kValue);
+		if (kValue > size)
+			printf("The sought value must actually be within the array!\n");
+	}
 
 	printf("Enter range for the elements: \n");
 	while (range < size){
@@ -68,6 +71,7 @@ void playGround(void){
 		freeArrayT(Array);
 		freeArrayT(origArray);
 		freeCounter(counter);
-		exit(0);
+
 	}
+	system("pause");
 }

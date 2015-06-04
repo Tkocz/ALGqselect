@@ -70,6 +70,7 @@ void performance(void){
 	freeArrayT(Array);
 	freeArrayT(origArray);
 	freeCounter(counter);
+	system("pause");
 }
 
 static double GetCurrentCPUTime(){

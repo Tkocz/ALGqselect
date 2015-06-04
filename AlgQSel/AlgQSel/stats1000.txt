@@ -1,9 +1,16 @@
-Size of Array: 1000Quicksort - Lomuto LoopCounts: 3056
+Size of Array: 1000
+
+QuickSelect - Lomuto 
+LoopCounts: 3056
 Recursions: 11
-Time: 200 usecs
-Quicksort - Hoare's LoopCounts: 2872
-Recursions: 12
 Time: 166.667 usecs
-BruteSort LoopCounts: 12673
+
+QuickSelect - Hoare's 
+LoopCounts: 2872
+Recursions: 12
+Time: 133.333 usecs
+
+BruteSelect - 
+LoopCounts: 12673
 Recursions: 0
-Time: 22200 usecs
+Time: 21700 usecs

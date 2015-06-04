@@ -16,15 +16,15 @@ void save(counterT counter) {
 	}
 	fprintf(stats, "Size of Array: %d\n", ARRAYSIZE);
 
-	fprintf(stats, "\nQuicksort - Lomuto LoopCounts: %d\n", counter->lomuto->LoopCounts);
+	fprintf(stats, "\nQuickSelect - Lomuto \nLoopCounts: %d\n", counter->lomuto->LoopCounts);
 	fprintf(stats, "Recursions: %d\n", counter->lomuto->recursions);
 	fprintf(stats, "Time: %g usecs\n", counter->lomuto->timer);
 
-	fprintf(stats, "\nQuicksort - Hoare's LoopCounts: %d\n", counter->hoare->LoopCounts);
+	fprintf(stats, "\nQuickSelect - Hoare's \nLoopCounts: %d\n", counter->hoare->LoopCounts);
 	fprintf(stats, "Recursions: %d\n", counter->hoare->recursions);
 	fprintf(stats, "Time: %g usecs\n", counter->hoare->timer);
 
-	fprintf(stats, "\nBruteSort LoopCounts: %d\n", counter->brute->LoopCounts);
+	fprintf(stats, "\nBruteSelect - \nLoopCounts: %d\n", counter->brute->LoopCounts);
 	fprintf(stats, "Recursions: %d\n", counter->brute->recursions);
 	fprintf(stats, "Time: %g usecs\n", counter->brute->timer);
 
